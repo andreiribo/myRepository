@@ -1,0 +1,18 @@
+job('SimpleDSLGit'){
+	scm {
+		git('https://github.com/andreiribo/myRepository.git')
+	}
+	parameters {
+		stringParam( 'Name' , 'DefaultName' , 'FirstParam')
+	}
+	steps{
+		shell('echo $JOB_NAME')
+		downstreamParameterized {
+			trigger('paramJob') {
+				parameters {
+					peredefinedProp('Name' , '$Name')
+				}
+			}
+		}
+	}
+}
