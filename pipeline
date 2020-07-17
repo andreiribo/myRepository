@@ -1,0 +1,9 @@
+node {
+    stage('Clone'){
+        git 'https://github.com/andreiribo/myRepository.git'
+    }
+    stage('Read'){
+        sh label: '', script: 'cat README.md'
+    }
+    
+}
