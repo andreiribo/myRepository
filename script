@@ -3,14 +3,14 @@ job('SimpleDSLGit'){
 		git('https://github.com/andreiribo/myRepository.git')
 	}
 	parameters {
-		stringParam( 'Object' , 'DefaultName' , 'FirstParam')
+		stringParam( 'Name' , 'DefaultName' , 'FirstParam')
 	}
 	steps{
 		shell('echo $JOB_NAME')
 		downstreamParameterized {
-			trigger('paramJob') {
+			trigger('SimpleDSLJob') {
 				parameters {
-					peredefinedProp('Name' , '$Object')
+					peredefinedProp('Name' , '$Name')
 				}
 			}
 		}
