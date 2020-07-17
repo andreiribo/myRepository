@@ -1,18 +1,11 @@
-job('SimpleDSLGit'){
-	scm {
-		git('https://github.com/andreiribo/myRepository.git')
-	}
+job('SimpleTrigger'){
 	parameters {
-		stringParam( 'Name' , 'DefaultName' , 'FirstParam')
+		stringParam( 'Object' , 'Undefined' , 'FirstParam')
 	}
 	steps{
-		shell('echo $JOB_NAME')
-		downstreamParameterized {
-			trigger('paramJob') {
-				parameters {
-					peredefinedProp('Name' , '$Name')
+		shell('echo -e "$JOB_NAME $BUILD_NUMBER \n $Object"')
+      publishers{
+        	downstream ('SimpleDSLJob', 'SUCCESS')
 				}
 			}
 		}
-	}
-}
