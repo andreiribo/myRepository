@@ -10,7 +10,7 @@ job('SimpleDSLGit'){
 		downstreamParameterized {
 			trigger('ParamJob2') {
 				parameters {
-					peredefinedProp('Name' , '$Name')
+					predefinedProp('Name' , '$Name')
 				}
 			}
 		}
