@@ -8,7 +8,7 @@ job('SimpleDSLGit'){
 	steps{
 		shell('echo $JOB_NAME')
 		downstreamParameterized {
-			trigger('SimpleDSLJob') {
+			trigger('ParamJob2') {
 				parameters {
 					peredefinedProp('Name' , '$Name')
 				}
