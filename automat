@@ -1,5 +1,5 @@
 for (i=1; i<=10; i++){
-job('SimpleDSLGit-$i'){
+job("SimpleDSLGit-$i"){
 	scm {
 		git('https://github.com/andreiribo/myRepository.git')
 	}
