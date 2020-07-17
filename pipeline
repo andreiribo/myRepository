@@ -2,8 +2,10 @@ node {
     stage('Clone'){
         git 'https://github.com/andreiribo/myRepository.git'
     }
-    stage('Read'){
-        sh label: '', script: 'cat README.md'
+    stage('List Files'){
+        sh label: '', script: 'ls'
     }
-    
+    stage('MailSend'){
+        mail bcc: '', body: 'Pipeline has run successfully!', cc: '', from: '', replyTo: '', subject: 'Rezultat test', to: 'crisuandreicristian@gmail.com'
+    }
 }
